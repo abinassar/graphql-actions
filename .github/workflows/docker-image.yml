@@ -13,6 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag abinassar/docker-graphql:0.0.1
+    # Tomo todo el codigo de mi repositorio
+    - name: Checkout code
+      uses: actions/checkout@v4
+      # Investigar mas sobre fetch-depth
+      # Ya que basicamente busca de forma profunda
+      # Dentro de un repositorio
+      with:
+        fetch-depth: 0
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        echo "Iniciando login"
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        echo "Finalizado login"
+        
