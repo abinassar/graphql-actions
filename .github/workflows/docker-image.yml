@@ -43,8 +43,10 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
+        echo "Iniciando Build Docker Image"
         docker build -t abinassar/docker-graphql:$NEW_VERSION .
         docker build -t abinassar/docker-graphql:latest .
+        echo "Finalizando Build Docker Image"
         
     - name: Push Docker Image
       env:
