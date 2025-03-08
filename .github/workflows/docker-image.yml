@@ -47,6 +47,7 @@ jobs:
         docker build -t abinassar/docker-graphql:$NEW_VERSION .
         docker build -t abinassar/docker-graphql:latest .
         echo "Finalizando Build Docker Image"
+        echo "New feat"
         
     - name: Push Docker Image
       env:
