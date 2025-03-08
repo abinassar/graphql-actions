@@ -50,6 +50,6 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker push klerith/docker-graphql:$NEW_VERSION
-        docker push klerith/docker-graphql:latest
+        docker push abinassar/docker-graphql:$NEW_VERSION
+        docker push abinassar/docker-graphql:latest
         
